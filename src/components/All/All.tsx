@@ -4,7 +4,7 @@ import DataBase from '../../model/DataBase';
 import Placeholder from '../Placeholder/Placeholder';
 import { Sneaker } from '../../Interfaces/Interfaces';
 import './all.scss';
-import SneakerItem from '../Sneaker/Sneaker';
+import SneakerCard from '../Sneaker/Sneaker';
 
 
 
@@ -32,7 +32,7 @@ export default function All() {
                 <div className="sneakers__body">
                     {
                         sneakersList.map(({ id, imgpath, price, title }: Sneaker) =>
-                            <SneakerItem key={id} id={id} imgpath={imgpath} price={price} title={title} />)
+                            <SneakerCard key={id} id={id} imgpath={imgpath} price={price} title={title} />)
                     }
                     {sneakersList.length === 0 && getArrPlaceholder(10)}
                 </div>

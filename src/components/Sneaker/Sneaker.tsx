@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { ImgPath } from "../../Enums/Enums";
 import { Sneaker } from "../../Interfaces/Interfaces";
 
 
-export default function SneakerItem({ id, imgpath, price, title }: Sneaker) {
+export default function SneakerCard({ id, imgpath, price, title }: Sneaker) {
     const [isLiked, setIsLiked] = useState<boolean>(false);
+    const changeHeart = () => setIsLiked(isLiked => !isLiked);
+    const getHeartStatus = (): string => isLiked ? ImgPath.activeHeart : ImgPath.inactiveHeart;
     return (
         <div key={id} className="sneakers__container">
             <div className="sneakers__item item-sneakers">
                 <div className="item-sneakers__img">
-                    <div className="item-sneakers__heart">
-                        <img src="img/all-heart-active.svg" alt="favourite" />
+                    <div onClick={changeHeart} className="item-sneakers__heart">
+                        <img src={getHeartStatus()} alt="favourite" />
                     </div>
                     <img src={imgpath} alt='item' />
                 </div>
