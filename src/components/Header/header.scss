@@ -66,6 +66,18 @@
     // .right-header__favourite
     &__favourite {
         cursor: pointer;
+
+
+        svg {
+            border-radius: 4px;
+            transition: all 0.3s ease 0s;
+            fill: #9B9B9B;
+
+            &:hover {
+                // background-color: rgb(255, 106, 106);
+                fill: rgb(253, 70, 70);
+            }
+        }
     }
 
     // .right-header__profile
