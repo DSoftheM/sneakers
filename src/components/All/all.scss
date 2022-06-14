@@ -1,0 +1,131 @@
+.all {
+
+    // .all__header
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    // .all__title
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+    }
+
+    // .all__search
+    &__search {
+
+        input {
+            background: url('../../../public/img/all-search.svg') 18px 50% no-repeat;
+            padding: 15px;
+            padding-left: 45px;
+            border: 1px solid #F3F3F3;
+            border-radius: 10px;
+
+            &::placeholder {
+                font-size: 14px;
+                line-height: 17px;
+                color: #C4C4C4;
+            }
+
+            &:focus {
+                outline: 1px solid #333;
+            }
+        }
+    }
+
+    // .all__sneakers
+    &__sneakers {}
+}
+
+.sneakers {
+
+    // .sneakers__body
+    &__body {
+        // display: flex;
+        // flex-wrap: wrap;
+        // row-gap: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    // .sneakers__item
+    &__item {}
+
+    &__container {}
+}
+
+.item-sneakers {
+    padding: 20px;
+    // background-color: rgba(51, 51, 51, 0.295);
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+        transform: translateY(-5px);
+    }
+
+    // .item-sneakers__img
+    &__img {
+        margin-bottom: 14px;
+        position: relative;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    // .item-sneakers__heart
+    &__heart {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    // .item-sneakers__title
+    &__title {
+        font-size: 14px;
+        line-height: 17px;
+        margin-bottom: 14px;
+    }
+
+    // .item-sneakers__footer
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .item-sneakers__left
+    &__left {}
+
+    // .item-sneakers__cost
+    &__cost {
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 13px;
+        text-transform: uppercase;
+        color: #BDBDBD;
+        margin-bottom: 2px;
+    }
+
+    // .item-sneakers__price
+    &__price {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+    }
+
+    // .item-sneakers__right
+    &__right {}
+
+    // .item-sneakers__add
+    &__add {
+        cursor: pointer;
+    }
+}

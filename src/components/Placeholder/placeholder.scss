@@ -1,0 +1,55 @@
+.sneakers__container_placeholder {
+    animation: loading 1s ease 0s infinite alternate;
+}
+
+@keyframes loading {
+    0% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.img-placeholder {
+    // width: 150px;
+    // height: 200px;
+    padding: 100px 0;
+
+    background: #F2F2F2;
+    border-radius: 10px;
+}
+
+.title-placeholder {
+    // height: 15px;
+    padding: 8px 0;
+
+    background: #F7F7F7;
+    border-radius: 3px;
+}
+
+.sneakers__container_placeholder .item-sneakers__footer {
+    display: block;
+}
+
+.cost-placeholder {
+    // height: 15px;
+    padding: 8px 0;
+    width: 60%;
+    background: #F7F7F7;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.price-placeholder {
+    // height: 24px;
+    padding: 12px 0;
+    width: 50%;
+    background: #F7F7F7;
+    border-radius: 8px;
+}
