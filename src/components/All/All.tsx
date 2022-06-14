@@ -6,9 +6,12 @@ import { Sneaker } from '../../Interfaces/Interfaces';
 import './all.scss';
 import SneakerCard from '../Sneaker/Sneaker';
 
+interface AllProps {
+    addToLiked: (item: Sneaker) => void;
+    addToCart: (item: Sneaker) => void;
+}
 
-
-export default function All() {
+export default function All({ addToLiked, addToCart }: AllProps) {
     const [inputValue, setInputValue] = useState<string>('');
     const [sneakersList, setSneakersList] = useState<Sneaker[]>([]);
     const sneakers: Sneaker[] = [];
@@ -32,7 +35,14 @@ export default function All() {
                 <div className="sneakers__body">
                     {
                         sneakersList.map(({ id, imgpath, price, title }: Sneaker) =>
-                            <SneakerCard key={id} id={id} imgpath={imgpath} price={price} title={title} />)
+                            <SneakerCard
+                                key={id}
+                                id={id}
+                                imgpath={imgpath}
+                                price={price}
+                                title={title}
+                                addToLiked={addToLiked}
+                                addToCart={addToCart} />)
                     }
                     {sneakersList.length === 0 && getArrPlaceholder(10)}
                 </div>

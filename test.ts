@@ -5,3 +5,5 @@ const splitPrice = (price: number): string => {
     }
     return priceArr.join('');
 }
+
+// Todo: реализовать корзину

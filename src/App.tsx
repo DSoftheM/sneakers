@@ -4,18 +4,15 @@ import Main from "./components/Main/Main";
 import Overlay from "./components/Overlay/Overlay";
 import './app.scss';
 import { useState } from "react";
+import { Sneaker } from "./Interfaces/Interfaces";
 
 function App() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  const [likedSneakers, setLikedSneakers] = useState<Sneaker[]>([]);
+  const [addedSneakers, setAddedSneakers] = useState<Sneaker[]>([]);
 
-  // const getData = async () => {
-  //   console.log('data');
-  //   const data = await fetch('https://62a731fcbedc4ca6d7c45ded.mockapi.io/api/sneakers');
-  //   const json = data.json();
-  //   json.then(res => console.log(res));
-  // }
-
-  // getData();
+  const addToLiked = (item: Sneaker) => setLikedSneakers(likedSneakers => [...likedSneakers, item]);
+  const addToCart = (item: Sneaker) => setLikedSneakers(likedSneakers => [...likedSneakers, item]);
 
   return (
     <div className="wrapper">
@@ -25,7 +22,7 @@ function App() {
           <div className="app__body">
             <Header setIsOverlayOpen={setIsOverlayOpen} />
             <Main />
-            <All />
+            <All addToLiked={addToLiked} addToCart={addToCart} />
           </div>
         </div>
       </div>
