@@ -8,11 +8,6 @@ import { Sneaker } from "./Interfaces/Interfaces";
 
 function App() {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
-  const [likedSneakers, setLikedSneakers] = useState<Sneaker[]>([]);
-  const [addedSneakers, setAddedSneakers] = useState<Sneaker[]>([]);
-
-  const addToLiked = (item: Sneaker) => setLikedSneakers(likedSneakers => [...likedSneakers, item]);
-  const addToCart = (item: Sneaker) => setLikedSneakers(likedSneakers => [...likedSneakers, item]);
 
   return (
     <div className="wrapper">
@@ -22,7 +17,7 @@ function App() {
           <div className="app__body">
             <Header setIsOverlayOpen={setIsOverlayOpen} />
             <Main />
-            <All addToLiked={addToLiked} addToCart={addToCart} />
+            <All />
           </div>
         </div>
       </div>

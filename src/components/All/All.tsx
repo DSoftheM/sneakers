@@ -6,22 +6,18 @@ import { Sneaker } from '../../Interfaces/Interfaces';
 import './all.scss';
 import SneakerCard from '../Sneaker/Sneaker';
 
-interface AllProps {
-    addToLiked: (item: Sneaker) => void;
-    addToCart: (item: Sneaker) => void;
-}
+interface AllProps { }
 
-export default function All({ addToLiked, addToCart }: AllProps) {
+export default function All() {
     const [inputValue, setInputValue] = useState<string>('');
     const [sneakersList, setSneakersList] = useState<Sneaker[]>([]);
     const sneakers: Sneaker[] = [];
+    const placeholdersCount = 10;
 
     useEffect(() => {
         const db = new DataBase('https://62a731fcbedc4ca6d7c45ded.mockapi.io/api/');
         db.getData(ApiTitleEnum.sneakers).then(data => setSneakersList(data));
     }, []);
-
-    const getArrPlaceholder = (count: number) => Array(count).fill(<Placeholder />, 0, count);
 
     return (
         <div className="all">
@@ -40,11 +36,12 @@ export default function All({ addToLiked, addToCart }: AllProps) {
                                 id={id}
                                 imgpath={imgpath}
                                 price={price}
-                                title={title}
-                                addToLiked={addToLiked}
-                                addToCart={addToCart} />)
+                                title={title} />)
                     }
-                    {sneakersList.length === 0 && getArrPlaceholder(10)}
+                    {sneakersList.length === 0
+                        && Array(placeholdersCount)
+                            .fill(null)
+                            .map((item, index) => <Placeholder key={index} />)}
                 </div>
             </div>
         </div>

@@ -1,12 +1,17 @@
 import React, { SyntheticEvent } from 'react';
+import { useAppSelector } from '../../hooks/reduxHooks';
+import { Sneaker } from '../../Interfaces/Interfaces';
+import { SetState } from '../../types/types';
+import SneakerOverlay from '../SneakerOverlay/SneakerOverlay';
 import './overlay.scss';
 
 interface OverlayProps {
-    setIsOverlayOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setIsOverlayOpen: SetState<boolean>
 }
 
 export default function Overlay({ setIsOverlayOpen }: OverlayProps) {
     const closeOverlay = () => setIsOverlayOpen(prev => !prev);
+    const cart = useAppSelector(state => state.cartReducer.cart);
 
     return (
         <div className="overlay">
@@ -16,18 +21,16 @@ export default function Overlay({ setIsOverlayOpen }: OverlayProps) {
                     <img onClick={closeOverlay} src="img/overlay-remove-active.svg" alt="close" />
                 </h2>
                 <ul className="overlay__list">
-                    <li className="overlay__item item-overlay">
-                        <div className="item-overlay__left">
-                            <img src="/img/all-item-4.jpg" alt="sneakers" />
-                        </div>
-                        <div className="item-overlay__center">
-                            <div className="item-overlay__title">Мужские Кроссовки Nike Air Max 270</div>
-                            <div className="item-overlay__price">12 999 руб.</div>
-                        </div>
-                        <div className="item-overlay__remove">
-                            <img src="img/overlay-remove-active.svg" alt="remove" />
-                        </div>
-                    </li>
+                    {
+                        cart.map(({ title, id, imgpath, price }: Sneaker) =>
+                            <SneakerOverlay
+                                id={id}
+                                imgpath={imgpath}
+                                price={price}
+                                title={title}
+                                key={id} />)
+                    }
+
                 </ul>
                 <div className="overlay__result result-overlay">
                     <div className="result-overlay__total total">
